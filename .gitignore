@@ -1,0 +1,12 @@
+.DS_Store
+
+# Bundle
+.bundle
+vendor/bundle
+
+# Jekyll
+.jekyll-cache/
+_site/
+
+# Node
+node_modules

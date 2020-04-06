@@ -1,0 +1,43 @@
+name: 'Snapmaker Documenation'
+title: 'Snapmaker Documenation'
+
+baseurl: "/Documentation"
+url: ""
+
+# Build settings
+theme: null
+sass:
+  # style: compressed
+  load_paths:
+    - _sass
+    - node_modules
+
+collections:
+  gcode:
+    output: true
+    permalink: /:collection/:path
+
+exclude:
+  - '.gitignore'
+  - '_config.yml'
+  - 'CNAME'
+  - 'Gemfile'
+  - 'Gemfile.lock'
+  - 'node_modules'
+  - 'package.json'
+  - 'resources'
+  - 'scripts'
+  - 'vendor'
+
+defaults:
+  - # Default
+    scope:
+      path: ''
+    values:
+      layout: 'default'
+
+  - # G-code
+    scope:
+      type: 'gcode'
+    values:
+      layout: 'gcode'

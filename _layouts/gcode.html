@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<div class="container-fluid" role="main">
+    <div class="row">
+        <div class="col-md-3 col-lg-2 sm-sidebar pl-0 pr-0">
+            <ul class="nav sm-sidenav">
+                {% assign list = '' | split: '' %}
+                {% for gcode in site.gcode %}
+                {% assign list = list | push: gcode %}
+                {% endfor %}
+
+                {% if list.size > 0 %}
+                {% assign list = list | sort: 'tag' %}
+                {% for gcode in list %}
+                <li class="{% if page.codes[0] == gcode.codes[0] and page.title == gcode.title %}active{% endif %}">
+                    <a href="{{ gcode.url | relative_url }}">
+                        {% for code in gcode.codes %}
+                        {{ code }}{% if forloop.last != true %} /{% endif %}
+                        {% endfor %}: {{ gcode.title }}
+                    </a>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+        <div class="col-md-9 col-lg-10">
+            {% include gcode-info.html gcode=page %}
+        </div>
+    </div>
+</div>
