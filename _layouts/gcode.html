@@ -30,3 +30,12 @@ layout: default
         </div>
     </div>
 </div>
+
+<script>
+    window.onload = function() {
+        const sideNav = document.getElementsByClassName("sm-sidenav")[0];
+        const activeItem = sideNav.getElementsByClassName("active")[0];
+
+        activeItem.scrollIntoView();
+    }
+</script>
